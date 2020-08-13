@@ -1,3 +1,4 @@
+"use strict";
 String.prototype.isPalindrome = function (){
     let text = this;
     text = text.toLowerCase().replace(/[^а-яa-z1-9]/gi, '');
@@ -9,8 +10,11 @@ String.prototype.isPalindrome = function (){
 }
 
 function getAverageMark(marks) {
+    if(marks.length === 0){
+       return 0; 
+    }
     const average = marks.reduce((a, b) => (a + b)) / marks.length;
-    const roundedAverage= average.toFixed(0);
+    const roundedAverage= Math.round(average);
     return roundedAverage;
 }
 
