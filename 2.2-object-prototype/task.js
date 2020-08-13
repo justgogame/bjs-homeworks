@@ -1,8 +1,17 @@
-//String.prototype.isPalindrome - для задачи №1
+String.prototype.isPalindrome = function (){
+    let text = this;
+    text = text.toLowerCase().replace(/[^а-яa-z1-9]/gi, '');
+    for (let i = 0, j = text.length - 1; i < j; i++, j--) {
+         if(text[i] != text[j])
+           return false;
+    }
+    return true;
+}
 
 function getAverageMark(marks) {
-    // код для задачи №2 писать здесь
-    // return averageMark
+    const average = marks.reduce((a, b) => (a + b)) / marks.length;
+    const roundedAverage= average.toFixed(0);
+    return roundedAverage;
 }
 
 function checkBirthday(birthday) {
